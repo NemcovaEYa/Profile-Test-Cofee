@@ -215,10 +215,12 @@ nav a:hover::after {
   box-shadow: 0 8px 40px rgba(62,39,35,0.18);
 }
 
-.about-image svg {
+.about-image img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .about-text p {
@@ -276,10 +278,23 @@ nav a:hover::after {
   box-shadow: 0 12px 48px rgba(62,39,35,0.15);
 }
 
-.menu-icon {
-  font-size: 2.8rem;
-  margin-bottom: 0.75rem;
+.menu-image {
+  height: 170px;
+  margin: -2rem -1.5rem 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.menu-image img {
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.menu-card:hover .menu-image img {
+  transform: scale(1.08);
 }
 
 .menu-card h3 {
@@ -359,16 +374,19 @@ nav a:hover::after {
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0,0,0,0.3);
   transition: transform 0.4s ease;
+  height: 100%;
 }
 
 .contact-map:hover {
   transform: scale(1.01);
 }
 
-.contact-map svg {
+.contact-map img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 /* ===== Footer ===== */
@@ -501,24 +519,7 @@ footer span {
     <p class="section-subtitle">Как всё начиналось</p>
     <div class="about-grid">
       <div class="about-image">
-        <svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Уютная атмосфера кофейни">
-          <rect width="560" height="380" rx="12" fill="#3e2723"/>
-          <circle cx="280" cy="200" r="90" fill="#5d4037"/>
-          <circle cx="260" cy="180" r="18" fill="#efebe9"/>
-          <circle cx="295" cy="175" r="14" fill="#efebe9"/>
-          <ellipse cx="270" cy="230" rx="40" ry="14" fill="#d7ccc8"/>
-          <rect x="180" y="150" width="14" height="90" rx="4" fill="#6d4c41"/>
-          <rect x="178" y="140" width="18" height="16" rx="5" fill="#bf8f6b"/>
-          <circle cx="300" cy="140" r="22" fill="#bf8f6b" opacity="0.5"/>
-          <circle cx="300" cy="140" r="12" fill="#bf8f6b"/>
-          <rect x="110" y="250" width="340" height="4" rx="2" fill="#d7ccc8" opacity="0.2"/>
-          <rect x="130" y="270" width="300" height="3" rx="1.5" fill="#d7ccc8" opacity="0.15"/>
-          <rect x="160" y="288" width="240" height="3" rx="1.5" fill="#d7ccc8" opacity="0.1"/>
-          <ellipse cx="400" cy="200" rx="45" ry="14" fill="#6d4c41" opacity="0.5"/>
-          <ellipse cx="400" cy="200" rx="30" ry="9" fill="#5d4037"/>
-          <circle cx="395" cy="190" r="5" fill="#efebe9" opacity="0.6"/>
-          <circle cx="405" cy="192" r="4" fill="#efebe9" opacity="0.4"/>
-        </svg>
+        <img src="cofee_history.jpg" alt="Уютная атмосфера кофейни" loading="lazy">
       </div>
       <div class="about-text">
         <p>Всё началось с двух друзей, пончика и чашки кофе. <strong>2018 год</strong>, маленький венский дворик и огромное желание создать место, где каждый гость чувствует себя как дома.</p>
@@ -536,25 +537,33 @@ footer span {
     <p class="section-subtitle">То, что мы любим и умеем готовить</p>
     <div class="menu-grid">
       <div class="menu-card">
-        <span class="menu-icon">☕</span>
+        <div class="menu-image">
+          <img src="menu_raf.jpg" alt="Раф-кофе с солёной карамелью" loading="lazy">
+        </div>
         <h3>Раф-кофе с солёной карамелью</h3>
         <p class="desc">Нежный раф с домашней солёной карамелью и щепоткой корицы</p>
         <span class="price">350 ₽</span>
       </div>
       <div class="menu-card">
-        <span class="menu-icon">🍩</span>
+        <div class="menu-image">
+          <img src="menu_donut.jpg" alt="Пончик «Бостон крем»" loading="lazy">
+        </div>
         <h3>Пончик «Бостон крем»</h3>
         <p class="desc">Воздушный дрожжевой пончик с заварным кремом и шоколадной глазурью</p>
         <span class="price">180 ₽</span>
       </div>
       <div class="menu-card">
-        <span class="menu-icon">🧊</span>
+        <div class="menu-image">
+          <img src="menu_matcha.jpg" alt="Холодный латте с матчей" loading="lazy">
+        </div>
         <h3>Холодный латте с матчей</h3>
         <p class="desc">Японская матча высшего сорта на альтернативном молоке со льдом</p>
         <span class="price">320 ₽</span>
       </div>
       <div class="menu-card">
-        <span class="menu-icon">🥜</span>
+        <div class="menu-image">
+          <img src="menu_danish.jpg" alt="Клубничный датский с миндалём" loading="lazy">
+        </div>
         <h3>Клубничный датский с миндалём</h3>
         <p class="desc">Хрустящая слоёнка с клубничным конфи и лепестками миндаля</p>
         <span class="price">220 ₽</span>
@@ -584,21 +593,7 @@ footer span {
         <p>+7 (812) 555-13-13<br>hello@dvapontsika.ru</p>
       </div>
       <div class="contact-map">
-        <svg viewBox="0 0 540 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Карта с местоположением кофейни">
-          <rect width="540" height="300" rx="12" fill="#2c1b10"/>
-          <rect x="30" y="40" width="480" height="220" rx="8" fill="#3e2723"/>
-          <rect x="60" y="70" width="420" height="170" rx="4" fill="#5d4037" opacity="0.4"/>
-          <rect x="90" y="90" width="120" height="30" rx="4" fill="#bf8f6b"/>
-          <rect x="230" y="90" width="80" height="30" rx="4" fill="#d7ccc8" opacity="0.3"/>
-          <rect x="330" y="90" width="60" height="30" rx="4" fill="#d7ccc8" opacity="0.3"/>
-          <rect x="410" y="90" width="40" height="30" rx="4" fill="#d7ccc8" opacity="0.2"/>
-          <rect x="90" y="140" width="180" height="20" rx="4" fill="#d7ccc8" opacity="0.15"/>
-          <rect x="290" y="140" width="100" height="20" rx="4" fill="#d7ccc8" opacity="0.15"/>
-          <rect x="90" y="175" width="240" height="20" rx="4" fill="#d7ccc8" opacity="0.1"/>
-          <circle cx="380" cy="200" r="10" fill="#bf8f6b"/>
-          <circle cx="380" cy="200" r="5" fill="#fff"/>
-          <rect x="375" y="210" width="10" height="18" rx="3" fill="#bf8f6b" opacity="0.7"/>
-        </svg>
+        <img src="cofee_place.jpg" alt="Карта с местоположением кофейни" loading="lazy">
       </div>
     </div>
   </div>
